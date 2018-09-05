@@ -17,9 +17,8 @@ XSS 跨站脚本攻击跨站脚本攻击(Cr"><meta name="keywords"><meta content
 <li>Reflected XSS(基于反射的XSS攻击)</li>
 <li>Stored XSS(基于存储的XSS攻击)</li>
 <li>DOM-based or local XSS(基于DOM或本地的XSS攻击)</li>
-<li>Reflected XSS(基于反射的XSS攻击)</li>
 </ul>
-<p>主要通过利用系统反馈行为漏洞，并欺骗用户主动触发，从而发起Web攻击。</p>
+<h4 id="Reflected-XSS-基于反射的XSS攻击"><a href="#Reflected-XSS-基于反射的XSS攻击" class="headerlink" title="Reflected XSS(基于反射的XSS攻击)"></a>Reflected XSS(基于反射的XSS攻击)</h4><p>主要通过利用系统反馈行为漏洞，并欺骗用户主动触发，从而发起Web攻击。</p>
 <p>举个栗子：</p>
 <ol>
 <li>假设，在严选网站搜索商品，当搜索不到时站点会做“xxx未上架提示”。如下图。<br><img src="/images/web安全/wKiom1nnWhCS-ibvAACN4UQ6Qjg077.png" alt="avatar"></li>
@@ -59,8 +58,7 @@ XSS 跨站脚本攻击跨站脚本攻击(Cr"><meta name="keywords"><meta content
 <p>······</p>
 <h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>XSS攻击的本质就是，利用一切手段在目标用户的浏览器中执行攻击脚本。</p>
 <h4 id="防范"><a href="#防范" class="headerlink" title="防范"></a>防范</h4><p>对于一切用户的输入、输出、客户端的输出内容视为不可信，在数据添加到DOM或者执行了DOM API的时候，我们需要对内容进行HtmlEncode或JavaScriptEncode，以预防XSS攻击。</p>
-<p>###CSRF 跨站请求伪造</p>
-<p>CSRF(Cross-site request forgery)跨站请求伪造，也被称为“One Click Attack”或者Session Riding，通常缩写为CSRF或者XSRF，是一种对网站的恶意利用。尽管听起来像跨站脚本(XSS)，但它与XSS非常不同，XSS利用站点内的信任用户，而CSRF则通过伪装来自受信任用户的请求来利用受信任的网站。与XSS攻击相比，CSRF攻击往往不大流行(因此对其进行防范的资源也相当稀少)和难以防范，所以被认为比XSS更具危险性。但往往同XSS一同作案!</p>
+<h3 id="CSRF-跨站请求伪造"><a href="#CSRF-跨站请求伪造" class="headerlink" title="CSRF 跨站请求伪造"></a>CSRF 跨站请求伪造</h3><p>CSRF(Cross-site request forgery)跨站请求伪造，也被称为“One Click Attack”或者Session Riding，通常缩写为CSRF或者XSRF，是一种对网站的恶意利用。尽管听起来像跨站脚本(XSS)，但它与XSS非常不同，XSS利用站点内的信任用户，而CSRF则通过伪装来自受信任用户的请求来利用受信任的网站。与XSS攻击相比，CSRF攻击往往不大流行(因此对其进行防范的资源也相当稀少)和难以防范，所以被认为比XSS更具危险性。但往往同XSS一同作案!</p>
 <p>此下的详解部分转自hyddd的博文<a href="http://www.cnblogs.com/hyddd/…，示例写的很赞就部分誊抄至此，并做了一定的修改，向作者hyddd致敬&amp;致谢。" target="_blank" rel="noopener">http://www.cnblogs.com/hyddd/…，示例写的很赞就部分誊抄至此，并做了一定的修改，向作者hyddd致敬&amp;致谢。</a></p>
 <h4 id="CSRF可以做什么"><a href="#CSRF可以做什么" class="headerlink" title="CSRF可以做什么?"></a>CSRF可以做什么?</h4><p>你这可以这么理解CSRF攻击：攻击者盗用了你的身份，以你的名义发送恶意请求。CSRF能够做的事情包括：以你名义发送邮件，发消息，盗取你的账号，甚至于购买商品，虚拟货币转账……造成的问题包括：个人隐私泄露以及财产安全。</p>
 <h4 id="CSRF漏洞现状"><a href="#CSRF漏洞现状" class="headerlink" title="CSRF漏洞现状"></a>CSRF漏洞现状</h4><p>CSRF这种攻击方式在2000年已经被国外的安全人员提出，但在国内，直到06年才开始被关注，08年，国内外的多个大型社区和交互网站分别爆出CSRF漏洞，如：NYTimes.com(纽约时报)、Metafilter(一个大型的BLOG网站)，YouTube和百度HI……而现在，互联网上的许多站点仍对此毫无防备，以至于安全业界称CSRF为“沉睡的巨人”。</p>
